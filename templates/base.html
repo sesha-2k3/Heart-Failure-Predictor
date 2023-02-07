@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heart Failure Predictor</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="{{
+        url_for('static', path='icon/icon.svg') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{
+        url_for('static', path='css/style.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <h3>Heart Failure Predictor</h3>
+      <p>
+        A Machine Learning Web Application, Built with FastAPI, Deployed using Render
+        Cloud.
+      </p>
+      <p>(The prediction is based on a sample dataset that has been recorderd previously. Please have a consultation with your doctor.)</p>
+      <div id="form-container">
+        <div id="form-wrapper">
+          <form action="/predict" method="post">
+            <div class="flex: 6">
+              <input
+                id="age"
+                name="age"
+                class="form-control"
+                type="number"
+                min="28"
+                max="77"
+                step="1"
+                placeholder="Age (years) eg. 28"
+                required
+              />
+
+              <input
+                id="restingBP"
+                name="restingBP"
+                class="form-control"
+                type="number"
+                min="0"
+                max="200"
+                step="1"
+                placeholder="Resting Blood Pressure eg. 135"
+                required
+              />
+
+              <input
+                id="oldpeak"
+                name="oldpeak"
+                class="form-control"
+                type="number"
+                min="0"
+                max="4"
+                step="0.1"
+                placeholder="Oldpeak ST [Numeric value measured in depression] eg. 1.0"
+                required
+              />
+
+              <select name="sex" class="form-control">
+                <option value="" disabled selected>Select Gender</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+              </select>
+
+              <select name="chestpaintype" class="form-control">
+                <option value="" disabled selected>
+                  Select Chest Pain Type
+                </option>
+                <option value="ASY">ASY</option>
+                <option value="NAP">NAP</option>
+                <option value="ATA">ATA</option>
+                <option value="TA">TA</option>
+              </select>
+
+              <select name="fastingBS" class="form-control">
+                <option value="" disabled selected>
+                  Select Fasting blood sugar level
+                </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+
+              <select name="exerciseAngina" class="form-control">
+                <option value="" disabled selected>
+                  Select ExerciseAngina
+                </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+
+              <select name="st_slope" class="form-control">
+                <option value="" disabled selected>Select ST_Slope</option>
+                <option value="Flat">Flat</option>
+                <option value="Up">Up</option>
+                <option value="Down">Down</option>
+              </select>
+
+              <input id="submit" class="btn" type="submit" value="Predict" />
+
+              <input
+                id="submit"
+                class="btn"
+                type="button"
+                onclick="location.href='/docs';"
+                style="float: right; background-color: rgb(90, 101, 104)"
+                value="Docs"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+      <br />
+      {% if prediction == 1 %}
+      <p>
+        Prediction: Oops! You have HEART DISEASE with {{probability}}% accuracy.
+      </p>
+      {% elif prediction == 0 %}
+      <p>
+        Prediction: Wow ! You DON'T HAVE HEART DISEASE with {{probability}}%
+        accuracy.
+      </p>
+      {% endif %}
+    </div>
+  </body>
+</html>
