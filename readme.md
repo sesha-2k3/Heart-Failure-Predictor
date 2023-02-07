@@ -48,7 +48,7 @@ pip install -r requirements.txt
 ```
 Then, Run the app
 ```
-uvicorn main:app
+python -m uvicorn main:app
 ```
 
 ## 📷 Screenshots
