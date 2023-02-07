@@ -55,7 +55,7 @@ python -m uvicorn main:app
 ### Home page
 ### Predictor
 ![predictor](markdown/Home.jpg)
-### Swagger UI
-![swagger_image](markdown/Swagger UI.jpg)
 ### Redoc UI
 ![redoc_image](markdown/Redoc.jpg)
+### Demo 
+![Demo.GIF](markdown/demo.gif)
