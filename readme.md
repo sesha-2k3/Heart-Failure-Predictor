@@ -54,8 +54,8 @@ uvicorn main:app
 ## 📷 Screenshots
 ### Home page
 ### Predictor
-![predictor](markdown/Home.jpg)
+![predictor](markdown/H.jpg)
 ### Swagger UI
-![swagger_image](markdown/Swagger UI.jpg)
+![swagger_image](markdown/Swagger .jpg)
 ### Redoc UI
-![redoc_image](markdown/Redoc.jpg)
+![redoc_image](markdown/doc.jpg)
