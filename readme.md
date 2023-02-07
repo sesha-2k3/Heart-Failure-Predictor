@@ -58,4 +58,4 @@ uvicorn main:app
 ### Swagger UI
 ![swagger_image](markdown/Swagger UI.jpg)
 ### Redoc UI
-![redoc_image](markdown/redoc.jpg)
+![redoc_image](markdown/Redoc.jpg)
